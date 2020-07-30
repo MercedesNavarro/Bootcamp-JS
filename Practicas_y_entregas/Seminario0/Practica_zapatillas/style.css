@@ -1,0 +1,51 @@
+.shopping-header, .shopping-footer {
+    margin: 40px 10px 25px;
+}
+
+.shopping-item {
+    margin: 10px auto 0;
+    text-align: center;
+    border-top: 1px solid #dfdddd;
+    border-bottom: 1px solid #dfdddd;
+}
+
+.shopping-item > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.shopping-item > input[type="checkbox"], .shopping-item > div {
+    margin: 20px 0;
+    margin-left: 10%;
+}
+
+.shopping-item > input[type="checkbox"] {
+    vertical-align: top;
+    margin-left: 0;
+}
+
+.shopping-item > img {
+    width: 100px;
+    height: auto;
+    margin-left: 10%;
+}
+
+.item-entry {
+    width: 300px;
+    text-align: left;
+}
+
+.item-name {
+    text-transform: uppercase;
+    font-weight:600;
+}
+
+.item-quantity > input[type="number"] {
+    width: 50px;
+    text-align: center;
+}
+
+.shopping-footer > h5 {
+    font-weight: bold;
+
+}
