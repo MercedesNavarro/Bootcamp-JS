@@ -14,6 +14,11 @@ a {
     display: inline-block;
 }
 
+li.module {
+    border-bottom: 1px solid #999;
+    padding: 0 0 20px;
+}
+
 h4 {
     margin: 15px 0 5px;
 }
