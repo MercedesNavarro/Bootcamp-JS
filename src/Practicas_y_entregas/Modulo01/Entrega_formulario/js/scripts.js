@@ -15,6 +15,8 @@ update.addEventListener("click", function(){
     firstName.value = "Merce";
     lastName.value = "Navarro";
 
+    console.log(`${firstName.value} ${lastName.value}`);
+
 });
 
 refresh.addEventListener("click", function(){
