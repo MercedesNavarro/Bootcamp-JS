@@ -20,7 +20,7 @@ var sum = () => {
     if(isNaN(numberA()) || isNaN(numberB())) {
         error();
     } else {    
-        resulta().innerHTML = numberA() + numberB();
+        result().innerHTML = numberA() + numberB();
         errorRefresh();
     }
 
