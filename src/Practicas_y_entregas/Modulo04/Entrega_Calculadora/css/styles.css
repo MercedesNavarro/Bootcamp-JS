@@ -1,0 +1,62 @@
+.main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.calculator-main {
+    width: 250px;
+}
+
+#result {
+    width: 230px;
+    height: 50px;
+    display: inline-block;
+    text-align: right;
+    line-height: 50px;
+    background-color: #f1f1f1;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+input[type="text"] {
+    width: 113px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+input[type="text"]#numberA {
+    float: left;
+}
+
+input[type="text"]#numberB {
+    float: right;
+}
+
+button {
+    width: 58px;
+    height: 30px;
+    margin: 10px 0 10px 1px;
+    background-color: #f2f2f2;
+}
+
+button#sumButton {
+    margin-left: 0;
+}
+
+button#refreshButton {
+    width: 250px;
+    height: 40px;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #a1ecc6;
+    font-size: 15px;
+}
+
+.error {
+    font-family: 'Courier New', Courier, monospace;
+    color: #f44336;
+    letter-spacing:1.3px;
+    font-size: 18px;
+}
