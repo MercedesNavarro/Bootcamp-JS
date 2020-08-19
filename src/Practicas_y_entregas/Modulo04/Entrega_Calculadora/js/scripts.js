@@ -15,9 +15,11 @@ var error = () => {
 
 var errorRefresh = () => result().classList.remove("error");
 
+var numberNaN = () => isNaN(numberA()) || isNaN(numberB());
+
 var sum = () => {
 
-    if(isNaN(numberA()) || isNaN(numberB())) {
+    if(numberNaN()) {
         error();
     } else {    
         result().innerHTML = numberA() + numberB();
@@ -28,7 +30,7 @@ var sum = () => {
 
 var subtraction = () => {
 
-    if(isNaN(numberA()) || isNaN(numberA())) {
+    if(numberNaN()) {
         error();
     } else {    
         result().innerHTML = numberA() - numberB();
@@ -39,7 +41,7 @@ var subtraction = () => {
 
 var multiplication = () => {
 
-    if(isNaN(numberA()) || isNaN(numberA())) {
+    if(numberNaN()) {
         error();
     } else {    
         result().innerHTML = numberA() * numberB();
@@ -50,7 +52,7 @@ var multiplication = () => {
 
 var division = () => {
 
-    if(isNaN(numberA()) || isNaN(numberA())) {
+    if(numberNaN()) {
         error();
     } else {    
         result().innerHTML = numberA() / numberB();
