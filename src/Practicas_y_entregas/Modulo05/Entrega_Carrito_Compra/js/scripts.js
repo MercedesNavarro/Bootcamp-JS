@@ -40,33 +40,32 @@ const carrito = [
 
 
 /* Mostrar el carrito de la compra con todos los productos */
-var print = (product) => {
+var print = (product, array) => {
     console.log("***********");
 
-    for (attr in carrito[product]) {
+    for (attr in array[product]) {
         console.log(attr + ": " + carrito[product][attr]);
     }
-
 };
 
-var showCart = () => {
-    for (product in carrito) {
-        print(product);
+var showCart = (array) => {
+    for (product in array) {
+        print(product, array);
     }
 };
 
-//showCart();
+//showCart(carrito);
 
 
 /* Eliminar el producto con id 54657 del carrito de la compra */
 var deleteProduct = (array, index) => {
-    array.splice(index, 1);
+    array.splice(index, 1); //No me interesa guardarlo pero se podría guardar en una variable
 };
 
 var findProduct = (id) => {
     var i = 0;
     var found = false;
-    var index = -1;
+    var index = carrito.length + 1; // Para que me dé un índice que no existe en caso de no encontrar el producto
 
     do {
         if (carrito[i].id == id) {
@@ -76,7 +75,7 @@ var findProduct = (id) => {
         i++;
     } while (i < carrito.length && !found);
 
-    //console.log("¿Se ha encontrado el elemento introducido? " + encontrado);
+    console.log("¿Se ha encontrado el elemento introducido? " + found);
     return index;
 
 };
@@ -98,30 +97,33 @@ var totalCart = () => {
 //totalCart();
 
 
-/* Filtrar por los productos que sean prime */
+/* Filtrar por los productos que sean prime */ 
 var prime = () => {
-    for (product in carrito) {
-        if(carrito[product].premium) {
-            print(product);
+    var premiumList = [];
+
+    for (product of carrito) {
+        if(product.premium) {
+            premiumList.push(product);
         }
     } 
+
+    return premiumList;
 };
 
 //prime();
+//showCart(prime());
 
 
 /* Si todos los productos son prime mostrar un mensaje "Pedido sin gastos de envío" */
-var productsPremium = true;
-
 var premiumFree = () => {
-    i = 0;
+    var i = 0;
+    var productsPremium = true;
     var mensaje;
     
     do {
-        if(!carrito[i].premium) {
-            productsPremium = false;
-        }
+        if(!carrito[i].premium) productsPremium = false;
         i++;
+        
     } while (i < carrito.length && productsPremium);
 
     productsPremium ? mensaje = "Pedido sin gastos de envío" : mensaje = "Este pedido tiene gastos de envío";
@@ -135,9 +137,8 @@ var premiumFree = () => {
 /* Aplicar un descuento del 5% si la compra es mayor de 100 € */
 var discount = () => {
     var total = totalCart();
-    if (total > 100) {
-        return total *= 0.95;
-    }
+    if (total > 100) return total *= 0.95;
+
 };
 
 //discount();
