@@ -20,46 +20,66 @@ var result = 0;
 
 var numberA = () => parseInt(document.getElementById("numberA").value);
 
-var refreshInput = () => document.getElementById("numberA").value = 0;
+var refreshInput = () => document.getElementById("numberA").value = "";
+var autofocus = () => document.getElementById("numberA").focus();
+var printResult = () => document.getElementById("result").innerHTML = result;
+
+var operationTasks = () => {
+    refreshInput();
+    autofocus();
+    printResult();
+};
 
 var operation = "";
 var sum = () =>  {
     operation = "sum";
+    operationTasks();
+};
+var subtraction = () => {
+    operation = "subtraction";
+    operationTasks();
+};
+var multiplication = () => {
+    operation = "multiplication";
+    operationTasks();
+};
+var division = () => {
+    operation = "division";
+    operationTasks();
 };
 
-var total = () => {
-    
-    if (!result) {
-        result = 0;
-        console.log("Distinto de result");
-
-    } else {
-        numberA();
-
-        switch (operation) {
-            case "sum":
-                result = result + numberA();
-            break;
-            case "subtraction":
-                result = result - numberA();
-            break;
-            case "multiplication":
-                result = result * numberA();
-            break;
-            case "division":
-                result = result / numberA();
-            break;        
-        }
-console.log("Estamos dentro del else");
+var typeOperation = () => {
+    switch (operation) {
+        case "sum": 
+            result += numberA();
+        break;
+        case "subtraction":
+            result -= numberA();
+        break;
+        case "multiplication":
+            result *= numberA();
+        break;
+        case "division":
+            result /= numberA();
+        break;
+        default:
+            result = numberA();
+        break;
     }
-
-    console.log(result+ " estamos dentro del total");
-    return result;
 };
 
-var printTotal = () => document.getElementById("result").innerHTML = result;
+var printTotal = () => {
+    printResult();
+    refreshInput();
+    result = 0;
+    operation = "";
+};
 
-document.getElementById("numberA").addEventListener("keyup", numberA);
+document.getElementById("numberA").addEventListener("change", typeOperation);
+
 document.getElementById("sumButton").addEventListener("click", sum);
+document.getElementById("subtractionButton").addEventListener("click", subtraction);
+document.getElementById("multiplicationButton").addEventListener("click", multiplication);
+document.getElementById("divisionButton").addEventListener("click", division);
 
 document.getElementById("totalButton").addEventListener("click", printTotal);

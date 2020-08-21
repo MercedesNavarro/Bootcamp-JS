@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../../../site.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Extra Reservas de hotel - Módulo 04</title>
+</head>
+<body>
+
+    <div class="header">
+        <h2>Módulo 04</h2>
+        <h3> - Extra Reservas de hotel</h3>
+    </div>
+    <div class="main">
+
+        <div class="booking-header">
+            <h4>RESERVAS DE HOTEL</h4>
+        </div>
+        <div class="booking-main">
+            
+            <form id="booking-form">
+                <label for="room">
+                    <p class="label">Tipo de habitación</p>
+                    <select name="room" id="room">
+                        <option value="standard" selected>Standard</option>
+                        <option value="juniorSuite">Junior Suite</option>
+                        <option value="suite">Suite</option>
+                    </select>
+                </label>
+                <label for="spa">
+                    <p class="label">Disfrute del SPA</p>
+                    <input type="checkbox" name="spa" id="spa">
+                </label>
+                <label for="occupation">
+                    <p class="label">Ocupación</p>
+                    <select id="occupation">
+                        <option value="individual">Individual</option>
+                        <option value="doble" selected>Doble</option>
+                        <option value="triple">Triple</option>
+                    </select>
+                </label>
+                <label for="nights">
+                    <p class="label">Número de noches</p>
+                    <input type="number" name="nights" id="nights" value="1" min="1" required>
+                </label>
+                <label for="parking">
+                    <p class="label">Número de noches de parking</p>
+                    <input type="number" name="parking" id="parking" value="0" min="0">
+                </label>
+                <!--<input id="calculate-button" type="button" value="Calcular">-->
+            </form>
+
+            <div class="result">
+                <h4 id="total"></h4>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="footer">
+        <a href="./../../../index.html" class="back">&larr; Volver a Índice de Prácticas</a>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+
+</body>
+</html>

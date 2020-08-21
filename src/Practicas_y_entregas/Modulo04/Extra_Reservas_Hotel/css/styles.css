@@ -1,0 +1,60 @@
+.main {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.booking-header {
+    margin: 30px 20px;
+}
+
+.booking-main {
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin: 15px 0;
+}
+
+p.label {
+    display: inline-block;
+    text-align: left;
+}
+
+input, 
+select {
+    width: 150px;
+    height: 30px;
+    margin: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    height: 20px;
+}
+
+input[type="button"] {
+    height: 40px;
+    width: 200px;
+    font-size: 16px;
+    margin: 20px 0;
+    font-weight: 600;
+    background-color: #d9d900;
+    border: 2px solid #a4a524;
+    border-radius: 5px;
+}
+
+.result {
+    text-align: right;
+}
+
+h4#total {
+    margin: 25px 10px 20px;
+}
