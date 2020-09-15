@@ -58,7 +58,7 @@ CARS.forEach(element => {
 // De una sola linea extraer el contenido de src
 
 const IMG = `<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />`;
-const imgPattern = /(https:\/\/[A-Z0-9\n\.\/_-]+)/i;
+const imgPattern = /<img\ssrc=\"([\/\:A-Z0-9\n\.\/_-]+)\"/i;
 
 /* Extracción del contenido del src
 console.log(IMG.match(imgPattern));*/
@@ -68,16 +68,13 @@ console.log(IMG.match(imgPattern));*/
 
 const HTML = `<html>
 <body>
-  <img
-    src="https://image.freepik.com/iconos-gratis/github-circular_318-10610.jpg"
+  <img src="https://image.freepik.com/iconos-gratis/github-circular_318-10610.jpg"
   />
   <h1>ejemplo</h1>
-  <img
-    src="https://github.githubassets.com/images/modules/logos_page/GitHub-
-Mark.png"
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
 /> </body>
 </html>`;
-const htmlPattern = /(https:\/\/[A-Z0-9\n\.\/_-]+)/gmi;
+const htmlPattern = /<img\ssrc=\"([\/\:A-Z0-9\.\/_-]+)\"/gmi;
 
 /* Extracción de varias imágenes de un documento
 console.log(HTML.match(htmlPattern));*/
