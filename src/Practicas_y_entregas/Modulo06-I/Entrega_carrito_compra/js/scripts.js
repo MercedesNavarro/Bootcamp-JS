@@ -179,7 +179,7 @@ document.getElementById("calculate-button").addEventListener("click", handlerBut
 // Botón habilitado / inhabilitado según totalUnits >= 0
 var disabled = (totalUnits) => {
     var button = document.getElementById("calculate-button");
-    totalUnits > 0 ? button.disabled = false : button.disabled = true;
+    button.disabled = totalUnits <= 0;
 };
 
 // Manejador de evento de change en el documento

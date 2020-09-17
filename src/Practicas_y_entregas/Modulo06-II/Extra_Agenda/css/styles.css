@@ -1,0 +1,58 @@
+.schedule-header h4 {
+    margin: 30px 0 10px;
+    text-align: center;
+}
+
+.schedule {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#schedule-main {
+    max-width: 530px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #999;
+}
+
+#hours {
+    display: flex;
+    flex-direction: column;
+    flex: 3 1 auto;
+}
+
+.work-hours {
+    border: 1px solid #999;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    height: 50px;
+}
+
+#schedules {
+    display: flex;
+    flex-direction: row;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+}
+
+.availability {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    border: 1px solid #999;
+    box-sizing: content-box;
+    text-align: center;
+}
+
+.footer {
+    text-align: left;
+}
