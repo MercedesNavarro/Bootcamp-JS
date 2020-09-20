@@ -5,7 +5,8 @@ import * as Utils from "./utils";
 DataBusiness.getCharacters().then((data) => {
     const characters = data;
     const nodes = [];
-console.log(data);
+    document.getElementById("root").innerHTML = "";
+    
     for (let character of characters) {
         nodes.push(Utils.createCharacterRow(character));
     }

@@ -286,7 +286,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 DataBusiness.getCharacters().then(function (data) {
   var characters = data;
   var nodes = [];
-  console.log(data);
+  document.getElementById("root").innerHTML = "";
 
   var _iterator = _createForOfIteratorHelper(characters),
       _step;
@@ -342,7 +342,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54238" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59664" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
