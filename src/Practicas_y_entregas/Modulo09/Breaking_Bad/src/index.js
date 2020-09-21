@@ -13,7 +13,7 @@ DataBusiness.getCharacters().then((data) => {
 
     for (let node of nodes) {
         document.getElementById("root").append(node);
-        node.addEventListener("click", function() {
+        node.addEventListener("click", () => {
             Utils.showCharacter(characters[nodes.indexOf(node)]);
         });
     }

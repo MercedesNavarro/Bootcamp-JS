@@ -94,7 +94,7 @@ var icons = {
 
 
 /* Calcular diferencia entre importes */
-var refund = () => parseFloat(document.getElementById("quantity-delivered").value) - parseFloat(document.getElementById("total-price").value);
+var refund = () => (Number(document.getElementById("quantity-delivered").value) - Number(document.getElementById("total-price").value)).toFixed(2);
 
 
 /* Bucle para los billetes / monedas */
@@ -110,7 +110,6 @@ var changeGenerator = () => {
             console.log("Se va a devolver " + money[unit].quantity + " " + money[unit].type + " de " + money[unit].name + "€.");
 
             printResult(money[unit]);
-            //console.log(parseFloat(difference));
         }
 
         if (difference === 0) {
@@ -135,7 +134,6 @@ var changeGeneratorCash = () => {
             console.log("Se va a devolver " + money[unit].quantity + " " + money[unit].type + " de " + money[unit].name + "€.");
 
             printResult(money[unit]);
-            //console.log(parseFloat(difference));
         }
 
         if (difference === 0) {
