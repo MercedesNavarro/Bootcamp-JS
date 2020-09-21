@@ -45,7 +45,8 @@ const showCharacter = (character) => {
     .then(quote => {
       characterDetail.appendChild(
         createParagraph("Quote: " +  quote));
-    });
+    })
+    .catch(error => console.log("There is no quote to show for " + character.name));
   characterDetail.style.width = "350px";
 };
 
@@ -64,7 +65,7 @@ const getRandomQuote = (name) => {
     })
     .then((data) => {
       return data[0].quote;//El array solo tiene una única posición
-  });
+    });
 
 };
 

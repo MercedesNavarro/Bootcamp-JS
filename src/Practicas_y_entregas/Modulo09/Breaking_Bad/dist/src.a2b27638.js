@@ -254,6 +254,8 @@ var showCharacter = function showCharacter(character) {
   characterDetail.appendChild(createParagraph("Nickname: " + character.nickname));
   getRandomQuote(character.name).then(function (quote) {
     characterDetail.appendChild(createParagraph("Quote: " + quote));
+  }).catch(function (error) {
+    return console.log("There is no quote to show for " + character.name);
   });
   characterDetail.style.width = "350px";
 };
@@ -352,7 +354,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51395" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50298" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
