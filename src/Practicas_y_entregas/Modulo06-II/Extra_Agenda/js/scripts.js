@@ -38,10 +38,15 @@ var myTeam = [
 
 /* 1. Generación aleatoria de la disponibilidad */
 
-// Generación de aleatoriedad 50%
-var availability = () => (Math.random() < 0.5) ? true : false;
+/**
+ * Generación de aleatoriedad 50%
+ */
+var availability = () => Math.random() < 0.5;
 
-// Rellenar el array de una persona con la función anterior
+/**
+ * Rellenar el array de una persona con la función de aleatoriedad
+ * @param {Array} team
+ */
 var availabilityGenerator = (team) => {
     for (var person of team) {   
         for (var i = 0; i < person.availability.length; i++) {
@@ -52,7 +57,10 @@ var availabilityGenerator = (team) => {
 
 availabilityGenerator(myTeam);
 
-// Muestra por consola la agenda
+/**
+ * Muestra por consola la agenda
+ * @param {Array} team 
+ */
 var printSchedule = (team) => {
     document.getElementById("schedule-main").appendChild(createDiv("schedules", undefined));
     var currentDiv;
@@ -81,6 +89,11 @@ var printSchedule = (team) => {
 
 
 /* 2. Buscar hueco libre */
+/**
+ * Busca el primer hueco disponible en agenda.
+ * Devuelve hueco o no hueco
+ * @param {Array} team 
+ */
 var meetingGenerator = (team) => {
     for (var i = 0; i < WORK_HOURS.length; i++) {
         var available = true;
@@ -99,6 +112,11 @@ var meetingGenerator = (team) => {
 
 
 /* IMPRESIÓN EN HTML */
+/**
+ * Creación de un nodo div en HTML
+ * @param {string} id 
+ * @param {string} classes 
+ */
 var createDiv = (id, classes) => {
     var div = document.createElement("div");
     if (id != undefined) div.setAttribute("id", id);
@@ -107,6 +125,9 @@ var createDiv = (id, classes) => {
     return div;
 };
 
+/**
+ * Impresión del bucle de nodos
+ */
 var printHours = () => {
     document.getElementById("schedule-main").appendChild(createDiv("hours", null));
     var currentDiv;

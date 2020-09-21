@@ -41,7 +41,7 @@ input {
 #result {
     width: 250px;
     position: relative;
-    top: -15px;*
+    top: 0;
 }
 
 #result > div {

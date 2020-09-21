@@ -18,62 +18,72 @@ var money = [
         type : "billete",
         name : 200,
         quantity : 0,
+        cashRegister : 1,
     }, {
         type : "billete",
         name : 100,
         quantity : 0,
-    }, {
-        type : "billete",
-        name : 100,
-        quantity : 0,
+        cashRegister : 4,
     }, {
         type : "billete",
         name : 50,
         quantity : 0,
+        cashRegister : 6
     }, {
         type : "billete",
         name : 20,
         quantity : 0,
+        cashRegister : 14
     }, {
         type : "billete",
         name : 10,
         quantity : 0,
+        cashRegister : 9
     }, {
         type : "billete",
         name : 5,
         quantity : 0,
+        cashRegister : 21
     }, {
         type : "moneda",
         name : 2,
         quantity : 0,
+        cashRegister : 1
     }, {
         type : "moneda",
         name : 1,
         quantity : 0,
+        cashRegister : 19
     }, {
         type : "moneda",
         name : 0.5,
         quantity : 0,
+        cashRegister : 7
     }, {
         type : "moneda",
         name : 0.2,
         quantity : 0,
+        cashRegister : 15
     }, {
         type : "moneda",
         name : 0.1,
         quantity : 0,
+        cashRegister : 10
     }, {
         type : "moneda",
         name : 0.05,
         quantity : 0,
+        cashRegister : 8
     }, {
         type : "moneda",
         name : 0.02,
         quantity : 0,
+        cashRegister : 17
     }, {
         type : "moneda",
         name : 0.01,
         quantity : 0,
+        cashRegister : 11
     }
 ];
 
@@ -87,7 +97,7 @@ var icons = {
 var refund = () => parseFloat(document.getElementById("quantity-delivered").value) - parseFloat(document.getElementById("total-price").value);
 
 
-/* Bucle para el primer billete / moneda */
+/* Bucle para los billetes / monedas */
 var changeGenerator = () => {
     var difference = refund();
 
@@ -107,6 +117,35 @@ var changeGenerator = () => {
             break;
         }
     }
+};
+
+/* Bucle para el cambio teniendo en cuenta los billetes y monedas que hay en la caja */
+var changeGeneratorCash = () => {
+    var difference = refund();
+
+    for (var unit in money) {
+        if ((difference / money[unit].name) >= 1) {
+            money[unit].quantity = Math.floor(difference / money[unit].name);
+            if (money[unit].quantity > money[unit].cashRegister) {
+                money[unit].quantity = money[unit].cashRegister;
+            }
+            difference -= money[unit].name * money[unit].quantity;
+            console.log(difference);
+
+            console.log("Se va a devolver " + money[unit].quantity + " " + money[unit].type + " de " + money[unit].name + "€.");
+
+            printResult(money[unit]);
+            //console.log(parseFloat(difference));
+        }
+
+        if (difference === 0) {
+            break;
+        }
+    }
+};
+
+var inputs = () => {
+    document.getElementById("result").append("El producto vale " + document.getElementById("total-price").value + "€ y has introducido " + document.getElementById("quantity-delivered").value + "€. Hay que devolverte " + refund() + "€.");
 };
 
 var printResult = (unit) => {
@@ -132,7 +171,8 @@ var refreshInputs = () => {
 /* Manejador del evento de click */
 var handleCalculateResult = () => {
     refresh();
-    changeGenerator();
+    inputs();
+    changeGeneratorCash();
     refreshInputs();
 };
 
