@@ -15,7 +15,7 @@ const hasId = ({ id }) => id ? true : false;
 Implementa una función llamada head tal que, dado un array como entrada, devuelva el primer elemento. 
 TIP: No utilices el corchete ([]) para acceder a la posición 0. */
 
-const array1 = ["mesa", "silla", "alacena", "teléfono", "ambientador", "puerta", "sofá"];
+const array1 = ["mesa", "silla", "Alacena", "teléfono", "ambientador", "puerta", "sofá"];
 
 const head = ([primero, ]) => primero;
 
@@ -52,9 +52,9 @@ const excludeId = ({ id, ...rest }) => rest;
 Implementa una función llamada wordsStartingWithA tal que, dado un array de palabras como entrada, devuelva otro array filtrado con aquellas palabras que empiecen por a.
 TIP: No utilices bucles. */
 
-const wordsStartingWithA = array => array.filter(element => element[0] === "a");
+const wordsStartingWithA = array => array.filter(element => element[0] === "a" || element[0] === "A");
 
-//console.log(wordsStartingWithA(array1));
+console.log(wordsStartingWithA(array1));
 
 /* concat
 Implementa una función llamada concat tal que admita múltiples argumentos de tipo string y devuelva otro string con la concatenación de todos, separados por |.
