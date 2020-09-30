@@ -30,9 +30,18 @@ const reservas = [
     }
 ];
 
+const precios = 
+    {
+        standard: 100,
+        suite: 150,
+        business: 100
+    }
+;
+
 class HotelBookings {
     constructor() {
         this._data = [];
+        this._prices = {};
         this._subtotal = 0;
         this._total = 0;
     }
@@ -47,7 +56,17 @@ class HotelBookings {
         this.calculateTotal();
     }
 
+    set prices(pricesInput) {
+        this._prices = pricesInput;
+    }
+
+    get prices() {
+        return this._prices;
+    }
+
     get subtotal() {
+        this.calculateSubtotal();
+        this.calculateTotal();
         return this._subtotal;
     }
 
@@ -55,16 +74,19 @@ class HotelBookings {
         return this._total;
     }
     
-/* EJERCICIO ADICIONAL
-Añadimos un campo a cada reserva en el que indicamos si el desayuno está incluido o no: en caso de estar incluido supone un cargo adicional de 15 € por persona y noche. */
-
+    /* EJERCICIO ADICIONAL
+    Añadimos un campo a cada reserva en el que indicamos si el desayuno está incluido o no: en caso de estar incluido supone un cargo adicional de 15 € por persona y noche. */
 
     calculateBreakfast(room) {
         return (room.desayuno ? 15 : 0) * room.pax;
     }
 
     calculateEveryRoom(room) {
-        return this._subtotal;
+        return this._subtotal; //Función inicializada para extenderla en las clases heredadas
+    }
+
+    priceOfRoom(typeOfRoom) {
+        return this._prices[typeOfRoom];
     }
 
     calculateSubtotal() {
@@ -72,7 +94,7 @@ Añadimos un campo a cada reserva en el que indicamos si el desayuno está inc
     }
 
     calculateTotal() {
-        this._total = this._subtotal;
+        this._total = this._subtotal * 1.21;
     }
 }
 
@@ -80,6 +102,10 @@ Añadimos un campo a cada reserva en el que indicamos si el desayuno está inc
 Crear una clase base con la funcionalidad común, y dos clases hijas una con el caso para cliente particular y otra para tour operador. */
 
 class PersonalBooking extends HotelBookings {
+    constructor() {
+        super();
+    }
+
     calculateTypeOfRoom(room) {
         return room.tipoHabitacion === "standard" ? 100 : 150;
     }
@@ -90,7 +116,7 @@ class PersonalBooking extends HotelBookings {
     }
 
     calculateEveryRoom(room) {
-        return room.noches * (this.calculateTypeOfRoom(room) + this.calculateAdditionalPerson(room) + this.calculateBreakfast(room));
+        return room.noches * (super.priceOfRoom(room.tipoHabitacion) + this.calculateAdditionalPerson(room) + super.calculateBreakfast(room));
     }
 
     calculateTotal() {
@@ -99,18 +125,23 @@ class PersonalBooking extends HotelBookings {
 }
 
 class BusinessBooking extends HotelBookings {
+    constructor () {
+        super();
+    }
+
     calculateEveryRoom(room) {
-        const staticPrice = 100;
-        return room.noches * (staticPrice + this.calculateBreakfast(room));
+        return room.noches * (super.priceOfRoom("business") + super.calculateBreakfast(room));
     }
 
     calculateTotal() {
-        this._total = Number((this._subtotal * 0.85).toFixed(2));
+        this._total = Number(((this._subtotal * 0.85) * 1.21).toFixed(2));
     }
 }
 
-const allBookings = new PersonalBooking();
+const allBookings = new BusinessBooking();
 allBookings.data = reservas;
+allBookings.prices = precios;
 
 console.log(`Subtotal de la reserva -> ${allBookings.subtotal}€`);
 console.log(`Total de la reserva -> ${allBookings.total}€`);
+

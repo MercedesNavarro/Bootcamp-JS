@@ -1,0 +1,91 @@
+/* EJERCICIOS EXTRA - CLASES Y THIS
+En un banco nos encontramos que tenemos:
+- Cuentas de empresa y cuentas particulares.
+- Tu puedes transferir dinero entre cuentas realizando transferencias.
+- En las cuentas particulares el coste de hacer una transferencia es de 1 €, y en el de empresas 0.5 €
+
+EJERCICIOS
+1. Crear una clase Cuenta, esta clase va a tener los siguientes campos: (ID, Cuenta Beneficiario, NIF, Nombre beneficiario, Nombre cuenta, Saldo, Tipo de cuenta)
+Y los siguientes métodos: 
+- MuestraEstado
+En el constructor le informaremos del ID de Cuenta, el nif del benficiario, el nombre de la cuenta y pondremos el saldo inicial. */
+
+class Cuenta {
+    constructor(cuentaBeneficiario, nif, nombreBeneficiario, nombreCuenta, saldo, tipoCuenta) {
+        this.id = 0;
+        this.cuentaBeneficiario = cuentaBeneficiario;
+        this.nif = nif;
+        this.nombreBeneficiario = nombreBeneficiario;
+        this.nombreCuenta = nombreCuenta;
+        this.saldo = saldo;
+        this.tipoCuenta = tipoCuenta;
+    }
+
+    muestraEstado() {
+        console.log(`*** Cuenta: ${this.cuentaBeneficiario} ***
+Nombre Beneficario: ${this.nombreBeneficiario}
+Nombre Cuenta: ${this.nombreCuenta}
+Tipo: ${this.tipoCuenta}
+Saldo: ${this.saldo}
+**********************************`);
+    }
+}
+
+
+/* 2. Crear una clase Transaccion esta clase va tener los siguientes campos:
+Cuenta origen. Cuenta destino. Cantidad a tranferir.
+Y los siguientes métodos:
+RealizaTransaccion(cantidad) hace efectiva la transacción (calculado la comisión y deduciendo de cada cuenta la cantidad correspondiente). */
+
+class Transaccion {
+    constructor(cuentaOrigen, cuentaDestino, cantidadTransferir) {
+        this.cuentaOrigen = cuentaOrigen;
+        this.cuentaDestino = cuentaDestino;
+        this.cantidadTransferir = cantidadTransferir;
+    }
+
+    realizaTransaccion(cantidad) {
+
+    }
+}
+
+/* 3. Vamos a crear una clase que se llamará LibroContable aquí vamos a tener todas las transacciones. Campos:
+Array de transacciones. Métodos:
+Realiza transacción: recibe como parámetros dos cuentas y realiza una transacción (la añade al listado de transacciones). Lista transacciones: lista todas las transacciones que se han realizado.
+*/
+
+
+const cuentaA = new Cuenta(
+    "ES6621000418401234567891",
+    "12345678X",
+    "Juan Perez",
+    "Nomina",
+    1400,
+    "particular"
+);
+const cuentaB = new Cuenta(
+    "ES1000492352082414205416",
+    "A84939209",
+    "Gestiones SL",
+    "gastos",
+    84400,
+    "empresa"
+);
+
+console.log("*** Estado Inicial ***");
+cuentaA.muestraEstado();
+cuentaB.muestraEstado();
+
+//const libroContable = new LibroContable();
+
+//const transaccion = new Transaccion(cuentaB, cuentaA, 1800);
+
+//const libroContable = new LibroContable();
+//libroContable.realizaTransaccion(transaccion);
+
+console.log("** estado final ***");
+cuentaA.muestraEstado();
+cuentaB.muestraEstado();
+
+console.log("** Listado transacciones ***");
+//libroContable.listaTransacciones();
