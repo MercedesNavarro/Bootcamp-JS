@@ -11,8 +11,8 @@ Y los siguientes métodos:
 En el constructor le informaremos del ID de Cuenta, el nif del benficiario, el nombre de la cuenta y pondremos el saldo inicial. */
 
 class Cuenta {
-    constructor(cuentaBeneficiario, nif, nombreBeneficiario, nombreCuenta, saldo, tipoCuenta) {
-        this.id = 0;
+    constructor(id, cuentaBeneficiario, nif, nombreBeneficiario, nombreCuenta, saldo, tipoCuenta) {
+        this.id = id;
         this.cuentaBeneficiario = cuentaBeneficiario;
         this.nif = nif;
         this.nombreBeneficiario = nombreBeneficiario;
@@ -23,6 +23,7 @@ class Cuenta {
 
     muestraEstado() {
         console.log(`*** Cuenta: ${this.cuentaBeneficiario} ***
+ID cuenta: ${this.id}
 Nombre Beneficario: ${this.nombreBeneficiario}
 Nombre Cuenta: ${this.nombreCuenta}
 Tipo: ${this.tipoCuenta}
@@ -45,17 +46,32 @@ class Transaccion {
     }
 
     realizaTransaccion(cantidad) {
-
+        const comision = this.cuentaDestino === "particular" ? 1 : 0.5;
+        this.cuentaOrigen.saldo -= comision + cantidad;
+        this.cuentaDestino.saldo += cantidad;
     }
 }
 
-/* 3. Vamos a crear una clase que se llamará LibroContable aquí vamos a tener todas las transacciones. Campos:
-Array de transacciones. Métodos:
-Realiza transacción: recibe como parámetros dos cuentas y realiza una transacción (la añade al listado de transacciones). Lista transacciones: lista todas las transacciones que se han realizado.
+/* 3. Vamos a crear una clase que se llamará LibroContable aquí vamos a tener todas las transacciones. 
+Campos:
+Array de transacciones. 
+Métodos:
+Realiza transacción: recibe como parámetros dos cuentas y realiza una transacción (la añade al listado de transacciones). 
+Lista transacciones: lista todas las transacciones que se han realizado.
 */
 
+class LibroContable {
+    constructor() {
+        this.arrayTransacciones = [];
+    }
+
+    incluyeTransaccion(cuentaOrigen, cuentaDestino) { //Le he cambiado el nombre para no confundirme con la de la clase Transacción
+        super.realizaTransaccion();
+    }
+}
 
 const cuentaA = new Cuenta(
+    1,
     "ES6621000418401234567891",
     "12345678X",
     "Juan Perez",
@@ -64,6 +80,7 @@ const cuentaA = new Cuenta(
     "particular"
 );
 const cuentaB = new Cuenta(
+    2,
     "ES1000492352082414205416",
     "A84939209",
     "Gestiones SL",
@@ -83,9 +100,9 @@ cuentaB.muestraEstado();
 //const libroContable = new LibroContable();
 //libroContable.realizaTransaccion(transaccion);
 
-console.log("** estado final ***");
+console.log("*** Estado final ***");
 cuentaA.muestraEstado();
 cuentaB.muestraEstado();
 
-console.log("** Listado transacciones ***");
+console.log("*** Listado transacciones ***");
 //libroContable.listaTransacciones();
