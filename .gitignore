@@ -1,14 +1,13 @@
 /node_modules
 /dist
 /.cache
-/Modulos curso
-/Practicas_y_entregas/Modulo09/Breaking_Bad/.cache
-/Practicas_y_entregas/Modulo09/Breaking_Bad/dist
-/Practicas_y_entregas/Modulo09/The_Rick_and_Morty/.cache
-/Practicas_y_entregas/Modulo09/The_Rick_and_Morty/dist
-/Practicas_y_entregas/Modulo12/Banca_Online/.cache
-/Practicas_y_entregas/Modulo12/Banca_Online/dist
-/Practicas_y_entregas/Modulo12/Banca_Online/node_modules
-/Practicas_y_entregas/Modulo12/Portal_Inmobiliario/.cache
-/Practicas_y_entregas/Modulo12/Portal_Inmobiliario/dist
-/Practicas_y_entregas/Modulo12/Portal_Inmobiliario/node_modules
+/src/Practicas_y_entregas/Modulo09/Breaking_Bad/.cache
+/src/Practicas_y_entregas/Modulo09/Breaking_Bad/dist
+/src/Practicas_y_entregas/Modulo09/The_Rick_and_Morty/.cache
+/src/Practicas_y_entregas/Modulo09/The_Rick_and_Morty/dist
+/src/Practicas_y_entregas/Modulo12/Banca_Online/.cache
+/src/Practicas_y_entregas/Modulo12/Banca_Online/dist
+/src/Practicas_y_entregas/Modulo12/Banca_Online/node_modules
+/src/Practicas_y_entregas/Modulo12/Portal_Inmobiliario/.cache
+/src/Practicas_y_entregas/Modulo12/Portal_Inmobiliario/dist
+/src/Practicas_y_entregas/Modulo12/Portal_Inmobiliario/node_modules
