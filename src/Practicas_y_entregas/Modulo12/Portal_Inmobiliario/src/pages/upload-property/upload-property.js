@@ -4,6 +4,7 @@ import { getProvinces, getSaleTypes, getEquipments, addProperty } from './upload
 import { setOptionList, setCheckboxList, onAddFeature, onRemoveFeature, formatDeleteFeatureButtonId, onAddImage } from './upload-property.helpers';
 import { mapPropertyFromVMToApi } from './upload-property.mappers';
 import { history } from '../../core/router/history';
+import { routes } from '../../core/router/routes';
 
 let property = {
     title: '',
@@ -234,7 +235,7 @@ onSubmitForm('save-button', () => {
         if(result.succeeded) {
             addProperty(mapPropertyFromVMToApi(property));
 
-            history.back();
+            history.push(routes.propertyList);
         }
     });
 });
