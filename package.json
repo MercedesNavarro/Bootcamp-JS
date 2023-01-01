@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/MercedesNavarro/Bootcamp-JS#readme",
   "devDependencies": {
-    "parcel": "^1.12.4",
+    "parcel": "^2.8.2",
     "rimraf": "^3.0.2"
   },
   "dependencies": {}
